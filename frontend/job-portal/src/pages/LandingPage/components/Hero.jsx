@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Search, ArrowRight, Users, Building2, TrendingUp } from "lucide-react";
+import {
+  Search,
+  ArrowRight,
+  Users,
+  Building2,
+  TrendingUp,
+  ClipboardCheck,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 
@@ -14,10 +21,10 @@ const Hero = () => {
   ];
 
   return (
-    <section className="pt-24 pb-16 bg-[#F6F2F0] min-h-screen flex items-center">
-      <div className="container mx-auto px-4">
+    <section className="pt-24 pb-16 bg-[#F6F2F0] min-h-screen flex items-center relative overflow-hidden">
+      <div className="container mx-auto px-4 lg:max-w-5xl">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Main Heading */}
+          {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,7 +42,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-xl text-[#676664] mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-[#676664] mb-12 max-w-xl mx-auto leading-relaxed"
           >
             Connect talented professionals with innovative companies. Your next
             career move or perfect candidate is just one click away.
@@ -46,12 +53,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 gap-y-6 justify-center items-center mb-16"
           >
+            {/* Find Jobs */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="group bg-[#F53900] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2"
+              aria-label="Find Jobs"
+              className="group bg-gradient-to-r from-[#F53900] to-[#FF6B00] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center space-x-2"
               onClick={() => navigate("/find-jobs")}
             >
               <Search className="w-5 h-5" />
@@ -59,10 +68,12 @@ const Hero = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
 
+            {/* Post a Job */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-[#F6F2F0] border-2 border-[#E5E5E5] text-[#676664] px-8 py-4 rounded-xl font-semibold text-lg hover:border-[#E5E5E5] hover:bg-[#E5E5E5] transition-all duration-300 shadow-sm hover:shadow-md"
+              aria-label="Post a Job"
+              className="bg-white border border-[#E5E5E5] text-[#676664] px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 shadow-sm hover:shadow-md"
               onClick={() => {
                 navigate(
                   isAuthenticated && user?.role === "employer"
@@ -72,6 +83,19 @@ const Hero = () => {
               }}
             >
               Post a Job
+            </motion.button>
+
+            {/* Interview Prep */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              aria-label="Interview Prep"
+              className="group bg-gradient-to-r from-[#F53900] to-[#FF6B00] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center space-x-2"
+              onClick={() => navigate("/interview-page")}
+            >
+              <ClipboardCheck className="w-5 h-5" />
+              <span>Interview Prep</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
 
@@ -88,10 +112,10 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
-                className="flex flex-col items-center space-y-2 p-4 rounded-xl hover:bg-[#E5E5E5] transition-colors"
+                className="flex flex-col items-center space-y-2 p-4 rounded-xl hover:bg-[#E5E5E5] transition-colors cursor-default"
               >
-                <div className="w-12 h-12 bg-[#E5E5E5] rounded-xl flex items-center justify-center mb-2">
-                  <stat.icon className="w-6 h-6 text-[#F53900]" />
+                <div className="w-12 h-12 bg-gradient-to-br from-[#F53900] to-[#FF7A00] rounded-xl flex items-center justify-center mb-2 shadow-md">
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-2xl font-bold text-[#22252D]">
                   {stat.value}
@@ -105,8 +129,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Decorative Background */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#E5E5E5] rounded-full blur-3xl opacity-30" />
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#E5E5E5] rounded-full blur-3xl opacity-30" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#E5E5E5] rounded-full blur-3xl opacity-20" />
