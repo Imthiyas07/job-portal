@@ -16,7 +16,7 @@ const app = express();
 // Middleware to handle CORS
 app.use(
   cors({
-    origin: "*",
+    origin: "https://sb8g3n4r-5173.inc1.devtunnels.ms",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })

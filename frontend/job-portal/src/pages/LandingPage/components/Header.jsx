@@ -3,12 +3,13 @@ import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
+import { useTranslation } from "react-i18next"; // ✅ Added
 import logo from "../../../assets/nxtserve-logo.png";
-
 
 const Header = () => {
   const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation(); // ✅ Hook for translations
 
   return (
     <motion.header
@@ -21,9 +22,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-           <div className="w-20 h-25 rounded-lg flex items-center justify-center">
-             <img src={logo} alt="NxtServe Logo" className="w-22 h-20 text-white" />
-           </div>
+            <div className="w-20 h-25 rounded-lg flex items-center justify-center">
+              <img src={logo} alt="NxtServe Logo" className="w-22 h-20 text-white" />
+            </div>
           </div>
 
           {/* Navigation Links - Hidden on mobile */}
@@ -32,7 +33,7 @@ const Header = () => {
               onClick={() => navigate("/find-jobs")}
               className="text-[#676664] hover:text-[#22252D] transition-colors font-medium"
             >
-              Find Jobs
+              {t("forJobSeeker")}
             </a>
             <a
               onClick={() => {
@@ -44,7 +45,7 @@ const Header = () => {
               }}
               className="text-[#676664] hover:text-[#22252D] transition-colors font-medium"
             >
-              For Employers
+              {t("forEmployers")}
             </a>
           </nav>
 
@@ -52,7 +53,9 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             {isAuthenticated ? (
               <div className="flex items-center space-x-3">
-                <span className="text-[#676664]">Welcome, {user?.fullName}</span>
+                <span className="text-[#676664]">
+                  {t("welcome")}, {user?.fullName}
+                </span>
                 <a
                   href={
                     user?.role === "employer"
@@ -61,7 +64,7 @@ const Header = () => {
                   }
                   className="bg-[#F53900] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md"
                 >
-                  Dashboard
+                  {t("dashboard")}
                 </a>
               </div>
             ) : (
@@ -70,13 +73,13 @@ const Header = () => {
                   href="/login"
                   className="text-[#676664] hover:text-[#22252D] transition-colors font-medium px-4 py-2 rounded-lg hover:bg-[#F6F2F0]"
                 >
-                  Login
+                  {t("login")}
                 </a>
                 <a
                   href="/signup"
                   className="bg-[#F53900] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md"
                 >
-                  Sign Up
+                  {t("signup")}
                 </a>
               </>
             )}

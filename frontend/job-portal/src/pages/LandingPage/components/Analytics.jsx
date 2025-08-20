@@ -1,29 +1,32 @@
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, Briefcase, Target } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Analytics = () => {
+  const { t } = useTranslation();
+
   const stats = [
     {
       icon: Users,
-      title: 'Active Users',
+      title: t('activeUsers'),
       value: '2.4M+',
       growth: '+15%',
     },
     {
       icon: Briefcase,
-      title: 'Jobs Posted',
+      title: t('jobsPosted'),
       value: '150K+',
       growth: '+22%',
     },
     {
       icon: Target,
-      title: 'Successful Hires',
+      title: t('successfulHires'),
       value: '89K+',
       growth: '+18%',
     },
     {
       icon: TrendingUp,
-      title: 'Match Rate',
+      title: t('matchRate'),
       value: '94%',
       growth: '+8%',
     }
@@ -40,11 +43,11 @@ const Analytics = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-[#22252D] mb-6">
-            Platform
-            <span className="bg-[#F53900] bg-clip-text text-transparent"> Analytics</span>
+            {t('platform')}
+            <span className="bg-[#F53900] bg-clip-text text-transparent"> {t('analytics')}</span>
           </h2>
           <p className="text-xl text-[#676664] max-w-3xl mx-auto">
-            Real-time insights and data-driven results that showcase the power of our platform in connecting talent with opportunities.
+            {t('analyticsSubtitle')}
           </p>
         </motion.div>
 

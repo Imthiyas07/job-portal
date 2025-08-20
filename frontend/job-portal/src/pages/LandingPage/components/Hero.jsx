@@ -9,21 +9,28 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
+import LanguageSwitcher from "../../../components/layout/LanguageSwitcher";
+import { useTranslation } from "react-i18next"; // ✅ Added
 
 const Hero = () => {
   const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation(); // ✅ Hook for translations
 
   const stats = [
-    { icon: Users, label: "Active Users", value: "2.4M+" },
-    { icon: Building2, label: "Companies", value: "50K+" },
-    { icon: TrendingUp, label: "Jobs Posted", value: "150K+" },
+    { icon: Users, label: t("activeUsers"), value: "2.4M+" },
+    { icon: Building2, label: t("companies"), value: "50K+" },
+    { icon: TrendingUp, label: t("jobsPosted"), value: "150K+" },
   ];
 
   return (
     <section className="pt-24 pb-16 bg-[#F6F2F0] min-h-screen flex items-center relative overflow-hidden">
       <div className="container mx-auto px-4 lg:max-w-5xl">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="hidden md:block float-top-right">
+            <p className="text-[#676664] hover:text-[#22252D] transition-colors font-medium">Language : <LanguageSwitcher /></p>
+          </div>
+
           {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -31,9 +38,9 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#22252D] mb-6 leading-tight pt-10"
           >
-            Find Your Dream Job or
+            {t("heroTitle")}
             <span className="block bg-[#F53900] bg-clip-text text-transparent mt-2">
-              Perfect Hire
+              {t("heroTagline")}
             </span>
           </motion.h1>
 
@@ -44,8 +51,7 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-lg md:text-xl text-[#676664] mb-12 max-w-xl mx-auto leading-relaxed"
           >
-            Connect talented professionals with innovative companies. Your next
-            career move or perfect candidate is just one click away.
+            {t("heroSubtitle")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -64,7 +70,7 @@ const Hero = () => {
               onClick={() => navigate("/find-jobs")}
             >
               <Search className="w-5 h-5" />
-              <span>Find Jobs</span>
+              <span>{t("findJobs")}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
 
@@ -82,7 +88,7 @@ const Hero = () => {
                 );
               }}
             >
-              Post a Job
+              {t("postJob")}
             </motion.button>
 
             {/* Interview Prep */}
@@ -94,7 +100,7 @@ const Hero = () => {
               onClick={() => navigate("/interview-page")}
             >
               <ClipboardCheck className="w-5 h-5" />
-              <span>Interview Prep</span>
+              <span>{t("interviewPrep")}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
@@ -127,13 +133,6 @@ const Hero = () => {
             ))}
           </motion.div>
         </div>
-      </div>
-
-      {/* Decorative Background */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#E5E5E5] rounded-full blur-3xl opacity-30" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#E5E5E5] rounded-full blur-3xl opacity-30" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#E5E5E5] rounded-full blur-3xl opacity-20" />
       </div>
     </section>
   );

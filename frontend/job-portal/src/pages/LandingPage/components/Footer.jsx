@@ -5,27 +5,29 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import logo from "../../../assets/nxtserve-logo.png";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[#E5E5E5] text-[#22252D] pt-20 pb-10 px-6">
       {/* Newsletter Section */}
       <div className="bg-[#F6F2F0] rounded-2xl p-8 text-center shadow-md max-w-6xl mx-auto mb-16">
-        <h4 className="text-2xl font-bold mb-4">Stay in the Loop</h4>
-        <p className="text-[#676664] mb-6">
-          Subscribe to our newsletter for job alerts, career tips, and exclusive updates.
-        </p>
+        <h4 className="text-2xl font-bold mb-4">{t("stayInLoop")}</h4>
+        <p className="text-[#676664] mb-6">{t("newsletterText")}</p>
         <form className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <input
             type="email"
-            placeholder="Enter your email"
+            placeholder={t("enterYourEmail")}
             className="px-4 py-3 rounded-lg border border-[#E5E5E5] w-full sm:w-2/3 focus:outline-none focus:ring-2 focus:ring-[#F53900] text-[#22252D]"
           />
           <button
             type="submit"
             className="bg-[#F53900] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#F6F2F0] hover:text-[#22252D] transition-all duration-300"
           >
-            Subscribe
+            {t("subscribe")}
           </button>
         </form>
       </div>
@@ -35,14 +37,11 @@ const Footer = () => {
         {/* Brand Section */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-[#F53900] rounded-lg flex items-center justify-center hover:bg-[#F6F2F0] transition-colors duration-300">
-              <Briefcase className="w-6 h-6 text-white" />
+            <div className="w-25 h-10 rounded-lg flex items-center justify-center">
+              <img src={logo} alt="NxtServe Logo" className="w-22 h-20 text-white" />
             </div>
-            <h3 className="text-xl font-bold">JobPortal</h3>
           </div>
-          <p className="text-[#676664]">
-            Empowering professionals and employers to connect, grow, and succeed.
-          </p>
+          <p className="text-[#676664]">{t("footerTagline")}</p>
           {/* Social Icons */}
           <div className="flex space-x-4 mt-4">
             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, index) => (
@@ -59,45 +58,46 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className="space-y-2">
-          <h4 className="font-semibold text-[#22252D] mb-2">Explore</h4>
-          {["Home", "Jobs", "Companies", "About Us", "Contact"].map((item, i) => (
+          <h4 className="font-semibold text-[#22252D] mb-2">{t("explore")}</h4>
+          {["home", "jobs", "companies", "aboutUs", "contact"].map((key, i) => (
             <a
               key={i}
               href="#"
               className="block text-[#676664] hover:text-[#22252D] transition-colors duration-300"
             >
-              {item}
+              {t(key)}
             </a>
           ))}
         </div>
 
         {/* Resources */}
         <div className="space-y-2">
-          <h4 className="font-semibold text-[#22252D] mb-2">Resources</h4>
-          {["Blog", "Career Tips", "Help Center", "Privacy Policy", "Terms"].map((item, i) => (
+          <h4 className="font-semibold text-[#22252D] mb-2">{t("resources")}</h4>
+          {["blog", "careerTips", "helpCenter", "privacyPolicy", "terms"].map((key, i) => (
             <a
               key={i}
               href="#"
               className="block text-[#676664] hover:text-[#22252D] transition-colors duration-300"
             >
-              {item}
+              {t(key)}
             </a>
           ))}
         </div>
 
         {/* Contact Info */}
         <div className="space-y-2">
-          <h4 className="font-semibold text-[#22252D] mb-2">Contact</h4>
-          <p className="text-[#676664]">support@jobportal.com</p>
-          <p className="text-[#676664]">+91 98765 43210</p>
-          <p className="text-[#676664]">Chennai, India</p>
+          <h4 className="font-semibold text-[#22252D] mb-2">{t("contact")}</h4>
+          <p className="text-[#676664]">support@nexserve.com</p>
+          <p className="text-[#676664]">Sales: (857)301-6002</p>
+          <p className="text-[#676664]">Customer Care: (617)682-0225</p>
+          <p className="text-[#676664]">333, Summer Street, Boston, MA-02210</p>
         </div>
       </div>
 
       {/* Bottom Note */}
       <div className="text-center mt-16 text-xs text-[#676664]">
-        <p>© {new Date().getFullYear()} JobPortal. All rights reserved.</p>
-        <p>Made with ❤️ by passionate developers. Happy Coding!</p>
+        <p>© {new Date().getFullYear()} JobPortal. {t("rightsReserved")}</p>
+        <p>{t("madeWithLove")}</p>
       </div>
     </footer>
   );

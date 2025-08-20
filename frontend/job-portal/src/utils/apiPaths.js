@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8000"; // Base URL for the API
+export const BASE_URL = "http://localhost:8000";
 
 export const API_PATHS = {
   AUTH: {
@@ -20,7 +20,7 @@ export const API_PATHS = {
     GET_JOBS_EMPLOYER: "/api/jobs/get-jobs-employer",
     GET_JOB_BY_ID: (id) => `/api/jobs/${id}`,
     UPDATE_JOB: (id) => `/api/jobs/${id}`,
-    TOGGLE_CLOSE: (id) => `/api/jobs/${id}`,
+    TOGGLE_CLOSE: (id) => `/api/jobs/${id}/toggle-close`,
     DELETE_JOB: (id) => `/api/jobs/${id}`,
     DELETE_JOB: (id) => `/api/jobs/${id}`,
 

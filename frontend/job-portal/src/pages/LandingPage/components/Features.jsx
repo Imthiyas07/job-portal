@@ -1,20 +1,22 @@
-import React from 'react'
+import React from 'react';
 import { employerFeatures, jobSeekerFeatures } from "../../../utils/data";
+import { useTranslation } from 'react-i18next';
 
 const Features = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 bg-[#F6F2F0] relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#22252D] mb-6">
-            Everything You Need to
+            {t("everythingYouNeedTo")}
             <span className="block bg-[#F53900] bg-clip-text text-transparent">
-              Succeed
+              {t("succeed")}
             </span>
           </h2>
           <p className="text-xl text-[#676664] max-w-3xl mx-auto">
-            Whether you're looking for your next opportunity or the perfect
-            candidate, we have the tools and features to make it happen.
+            {t("featuresSubtitle")}
           </p>
         </div>
 
@@ -23,7 +25,7 @@ const Features = () => {
           <div>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-[#22252D] mb-4">
-                For Job Seekers
+                {t("forJobSeeker")}
               </h3>
               <div className="w-24 h-1 bg-[#F53900] mx-auto rounded-full" />
             </div>
@@ -39,10 +41,10 @@ const Features = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-[#22252D] mb-2">
-                      {feature.title}
+                      {t(feature.title)}
                     </h4>
                     <p className="text-[#676664] leading-relaxed">
-                      {feature.description}
+                      {t(feature.description)}
                     </p>
                   </div>
                 </div>
@@ -54,7 +56,7 @@ const Features = () => {
           <div>
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-[#22252D] mb-4">
-                For Employers
+                {t("forEmployers")}
               </h3>
               <div className="w-24 h-1 bg-[#F53900] mx-auto rounded-full" />
             </div>
@@ -70,10 +72,10 @@ const Features = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-semibold text-[#22252D] mb-2">
-                      {feature.title}
+                      {t(feature.title)}
                     </h4>
                     <p className="text-[#676664] leading-relaxed">
-                      {feature.description}
+                      {t(feature.description)}
                     </p>
                   </div>
                 </div>
@@ -83,7 +85,7 @@ const Features = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

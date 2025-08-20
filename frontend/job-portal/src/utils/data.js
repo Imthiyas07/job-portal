@@ -16,54 +16,46 @@ import {
 export const jobSeekerFeatures = [
   {
     icon: Search,
-    title: "Smart Job Matching",
-    description:
-      "AI-powered algorithm matches you with relevant opportunities based on your skills and preferences.",
+    title: "aiJobMatching",
+    description: "aiJobMatchingDesc",
   },
   {
     icon: FileText,
-    title: "Resume Builder",
-    description:
-      "Create professional resumes with our intuitive builder and templates designed by experts.",
+    title: "resumeBuilder",
+    description: "resumeBuilderDesc",
   },
   {
     icon: MessageSquare,
-    title: "Direct Communication",
-    description:
-      "Connect directly with hiring managers and recruiters through our secure messaging platform.",
+    title: "directCommunication",
+    description: "directCommunicationDesc",
   },
   {
     icon: Award,
-    title: "Skill Assessment",
-    description:
-      "Showcase your abilities with verified skill tests and earn badges that employers trust.",
+    title: "skillBadges",
+    description: "skillBadgesDesc",
   },
 ];
 
 export const employerFeatures = [
   {
     icon: Users,
-    title: "Talent Pool Access",
-    description:
-      "Access our vast database of pre-screened candidates and find the perfect fit for your team.",
+    title: "hospitalityTalentPool",
+    description: "hospitalityTalentPoolDesc",
   },
   {
     icon: BarChart3,
-    title: "Analytics Dashboard",
-    description:
-      "Track your hiring performance with detailed analytics and insights on candidate engagement.",
+    title: "aiJobDescriptions",
+    description: "aiJobDescriptionsDesc",
   },
   {
     icon: Shield,
-    title: "Verified Candidates",
-    description:
-      "All candidates undergo background verification to ensure you're hiring trustworthy professionals.",
+    title: "smartDashboard",
+    description: "smartDashboardDesc",
   },
   {
     icon: Clock,
-    title: "Quick Hiring",
-    description:
-      "Streamlined hiring process reduces time-to-hire by 60% with automated screening tools.",
+    title: "fasterHiring",
+    description: "fasterHiringDesc",
   },
 ];
 
@@ -77,10 +69,10 @@ export const NAVIGATION_MENU = [
 
 // Categories and job types
 export const CATEGORIES = [
-  { value: "kitchen", label: "Kitchen & Culinary" },
-  { value: "service", label: "Service & Guest Experience" },
-  { value: "management", label: "Management & Operations" },
-  { value: "delivery", label: "Delivery & Logistics" }
+  { value: "Kitchen", label: "Kitchen & Culinary" },
+  { value: "Service", label: "Service & Guest Experience" },
+  { value: "Management", label: "Management & Operations" },
+  { value: "Delivery", label: "Delivery & Logistics" }
 ];
 
 
