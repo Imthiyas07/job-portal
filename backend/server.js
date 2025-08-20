@@ -16,7 +16,7 @@ const app = express();
 // Middleware to handle CORS
 app.use(
   cors({
-    origin: "https://sb8g3n4r-5173.inc1.devtunnels.ms",
+    origin: "https://nextserve-frontend.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
