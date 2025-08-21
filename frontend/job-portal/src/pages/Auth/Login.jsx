@@ -147,7 +147,7 @@ const Login = () => {
           </h2>
           <p className="text-gray-500 text-sm">
             Sign in to your{" "}
-            <span className="text-[#FF4D00] font-semibold">JobPortal</span>{" "}
+            <span className="text-[#FF4D00] font-semibold">NxtServe</span>{" "}
             account
           </p>
         </div>
