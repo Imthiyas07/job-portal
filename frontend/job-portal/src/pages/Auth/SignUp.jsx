@@ -290,7 +290,7 @@ const SignUp = () => {
             )}
           </div>
 
-          {/* Avatar Upload */}
+          {/* Avatar Upload 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Profile Picture (Optional)
@@ -331,7 +331,7 @@ const SignUp = () => {
                 {formState.errors.avatar}
               </p>
             )}
-          </div>
+          </div> */}
 
           {/* Role Selection */}
           <div>
