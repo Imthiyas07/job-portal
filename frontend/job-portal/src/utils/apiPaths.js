@@ -1,4 +1,4 @@
-export const BASE_URL = "https://nextserve-backend.vercel.app";
+export const BASE_URL = "https://nextserve-backend.onrender.com";
 
 export const API_PATHS = {
   AUTH: {
